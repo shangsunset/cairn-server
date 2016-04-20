@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "PORT=3000 NODE_ENV=developement nodemon index.js",
     "test": "PORT=3001 mocha --compilers js:babel-core/register ./tests"
   },
   "babel": {

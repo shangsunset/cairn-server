@@ -3,11 +3,6 @@ import server from '../server';
 
 describe('testing server routes', () => {
 
-  it('responds to /api/users', (done) => {
-    request(server)
-      .get('/api/users')
-      .expect(200, done);
-  });
 
   it('404 everything else', (done) => {
     request(server)
@@ -28,10 +23,9 @@ describe('testing HTTP requests', () => {
       .expect(200)
       .end((err, res) => {
         if (err) {
-          done(err);
-        } else {
-          done();
+          return done(err);
         }
+        done();
       });
   });
 

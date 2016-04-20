@@ -20,6 +20,7 @@ export function create(req, res) {
 
   user.save((err, user) => {
     if (err) {
+      console.log(err);
       return res.status(500).json(err);
     }
     const token = jwt.sign(user, process.env.SECRET, {

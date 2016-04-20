@@ -6,12 +6,12 @@ import session from 'express-session';
 
 import env from './env';
 
-import users from './routes/user';
-import messages from './routes/message';
+import user from './routes/user';
+import message from './routes/message';
 
 const app = express();
 
-mongoose.connect('mongodb://localhost/cairndb', function(err, connection) {
+mongoose.connect('mongodb://localhost/cairndb', function(err) {
   if (err) {
     throw err;
   }
@@ -37,8 +37,8 @@ app.use(function(req, res, next) {
 });
 
 // routes
-app.use('/users', users);
-app.use('/messages', messages);
+app.use('/api/users', user);
+app.use('/api/messages', message);
 
 
 // catch 404 and forward to error handler
@@ -73,7 +73,7 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(process.env.PORT, () => {
-  console.log('app listening on port 3000!');
+  console.log(`app listening on port ${process.env.PORT}!`);
 });
 
 export default app;

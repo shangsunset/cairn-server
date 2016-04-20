@@ -4,9 +4,9 @@ const ObjectId = Schema.ObjectId;
 
 const messageSchema = new Schema({
   content: String,
-  coordinates: [Number],
-  createAt: Date,
-  user: {type: Number, ref: 'User'}
+  coordinate: [Number],
+  // createAt: Date,
+  // user: {type: Number, ref: 'User'}
 });
 
 const Message = mongoose.model('Message', messageSchema);
